@@ -31,3 +31,13 @@ executable small-caps-converter
                       filepath
     hs-source-dirs:   app, src
     default-language: Haskell2010
+
+test-suite small-caps-test
+    type:             exitcode-stdio-1.0
+    main-is:          Spec.hs
+    other-modules:    Core.SmallCaps
+    build-depends:    base >= 4.7 && < 5,
+                      QuickCheck,
+                      text
+    hs-source-dirs:   test, src
+    default-language: Haskell2010
