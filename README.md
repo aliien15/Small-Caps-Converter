@@ -4,7 +4,7 @@ This project is a Haskell command-line utility. This tool parses Text and YAML f
 
 ## 🏗️ Project Structure
 
-The codebase follows the following strcuture:
+The codebase follows the following structure:
 
 ```text
 small-caps-converter/
