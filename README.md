@@ -88,17 +88,30 @@ This command recursively traverses the Abstract Syntax Tree (AST), ensuring that
 
 Create a file named `config.yaml` inside the `data/` folder:
 ```yaml
-# Core Configuration
+# Core Plugin Configuration
 plugin_data:
-  name: "Core Test Module"
+  name: "Test Module"
   version: 2.1
   enabled: true
   debug_mode: null
+
+# Messaging System
+messages:
+  prefix: "System Warning"
+  welcome: "Welcome back to the server!"
+  error_not_found: "Error: Target entity could not be located."
+
+# Active Systems
+modules:
+  - "DiscordWebhooks"
+  - "Time Formatting"
+  - "Database Manager"
 
 # Deep Nesting Test
 advanced_settings:
   database:
     pool_size: 1
+    async_writes: true
     credentials:
       user: "adminUser"
       pass: "SuperSecretPassword123!"
@@ -111,15 +124,25 @@ cabal run small-caps-converter -- yaml config new-config
 
 **Output (`data/new-config.yaml`):**
 ```yaml
-plugin_data:
-  name: "Cᴏʀᴇ Tᴇꜱᴛ Mᴏᴅᴜʟᴇ"
-  version: 2.1
-  enabled: true
-  debug_mode: null
 advanced_settings:
   database:
-    pool_size: 1
+    async_writes: true
     credentials:
-      user: "ᴀᴅᴍɪɴUꜱᴇʀ"
-      pass: "SᴜᴘᴇʀSᴇᴄʀᴇᴛPᴀꜱꜱᴡᴏʀᴅ123!"
+      pass: ꜱᴜᴘᴇʀꜱᴇᴄʀᴇᴛᴘᴀꜱꜱᴡᴏʀᴅ123!
+      user: ᴀᴅᴍɪɴᴜꜱᴇʀ
+    pool_size: 1
+messages:
+  error_not_found: 'ᴇʀʀᴏʀ: ᴛᴀʀɢᴇᴛ ᴇɴᴛɪᴛʏ ᴄᴏᴜʟᴅ ɴᴏᴛ ʙᴇ ʟᴏᴄᴀᴛᴇᴅ.'
+  prefix: ꜱʏꜱᴛᴇᴍ ᴡᴀʀɴɪɴɢ
+  welcome: ᴡᴇʟᴄᴏᴍᴇ ʙᴀᴄᴋ ᴛᴏ ᴛʜᴇ ꜱᴇʀᴠᴇʀ!
+modules:
+- ᴅɪꜱᴄᴏʀᴅᴡᴇʙʜᴏᴏᴋꜱ
+- ᴛɪᴍᴇ ꜰᴏʀᴍᴀᴛᴛɪɴɢ
+- ᴅᴀᴛᴀʙᴀꜱᴇ ᴍᴀɴᴀɢᴇʀ
+plugin_data:
+  debug_mode: null
+  enabled: true
+  name: ᴛᴇꜱᴛ ᴍᴏᴅᴜʟᴇ
+  version: 2.1
+
 ```
