@@ -1,0 +1,8 @@
+Hello World! 
+This is a test of the purely functional Haskell converter.
+
+Does it handle uppercase? YES.
+Does it handle lowercase? yes.
+Does it ignore numbers like 12345 and punctuation?!
+
+abcdefghijklmnopqrstuvwxyz

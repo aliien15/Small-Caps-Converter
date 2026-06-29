@@ -1,7 +1,7 @@
 module Core.SmallCaps (stringConverter) where
 
 dictionary :: [(Char, Char)]
-dictionary = zip "abcdefghijklmnopqrstuvwxyz" "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡxʏᴢ"
+dictionary = zip "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡxʏᴢ"
 
 -- Attempts to convert a char to a small cap, returning a the value converted if it is a letter,
 -- or the samel value if it can't be converted (due to not being a letter)

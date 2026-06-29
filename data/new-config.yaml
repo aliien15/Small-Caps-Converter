@@ -1,0 +1,20 @@
+advanced_settings:
+  database:
+    async_writes: true
+    credentials:
+      pass: ꜱᴜᴘᴇʀꜱᴇᴄʀᴇᴛᴘᴀꜱꜱᴡᴏʀᴅ123!
+      user: ᴀᴅᴍɪɴᴜꜱᴇʀ
+    pool_size: 1
+messages:
+  error_not_found: 'ᴇʀʀᴏʀ: ᴛᴀʀɢᴇᴛ ᴇɴᴛɪᴛʏ ᴄᴏᴜʟᴅ ɴᴏᴛ ʙᴇ ʟᴏᴄᴀᴛᴇᴅ.'
+  prefix: ꜱʏꜱᴛᴇᴍ ᴡᴀʀɴɪɴɢ
+  welcome: ᴡᴇʟᴄᴏᴍᴇ ʙᴀᴄᴋ ᴛᴏ ᴛʜᴇ ꜱᴇʀᴠᴇʀ!
+modules:
+- ᴅɪꜱᴄᴏʀᴅᴡᴇʙʜᴏᴏᴋꜱ
+- ᴛɪᴍᴇ ꜰᴏʀᴍᴀᴛᴛɪɴɢ
+- ᴅᴀᴛᴀʙᴀꜱᴇ ᴍᴀɴᴀɢᴇʀ
+plugin_data:
+  debug_mode: null
+  enabled: true
+  name: ᴛᴇꜱᴛ ᴍᴏᴅᴜʟᴇ
+  version: 2.1

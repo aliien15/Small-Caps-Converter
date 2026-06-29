@@ -1,0 +1,27 @@
+# Core Plugin Configuration
+plugin_data:
+  name: "Test Module"
+  version: 2.1
+  enabled: true
+  debug_mode: null
+
+# Messaging System
+messages:
+  prefix: "System Warning"
+  welcome: "Welcome back to the server!"
+  error_not_found: "Error: Target entity could not be located."
+
+# Active Systems
+modules:
+  - "DiscordWebhooks"
+  - "Time Formatting"
+  - "Database Manager"
+
+# Deep Nesting Test
+advanced_settings:
+  database:
+    pool_size: 1
+    async_writes: true
+    credentials:
+      user: "adminUser"
+      pass: "SuperSecretPassword123!"

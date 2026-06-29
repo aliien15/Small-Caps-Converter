@@ -10,14 +10,14 @@ convertYamlFile :: FilePath -> FilePath -> IO ()
 convertYamlFile pathIn pathOut = do
     resultBox <- decodeFileEither pathIn
     case resultBox of
-        Left err -> putStrLn err
+        Left err -> print err
         Right tree -> do
             let convertedText = convertYaml tree
             encodeFile pathOut convertedText
 
 -- Helper function to convert the String values inside the YAML file, leaving everything else alone
 convertYaml :: Value -> Value
-convertYaml (String textData) = String $ T.pack $ stringConverter $ T.unpack textDataz
-convertYaml (Object ob)       = Object $ fmap convertYaml obj
+convertYaml (String textData) = String $ T.pack $ stringConverter $ T.unpack textData
+convertYaml (Object obj)       = Object $ fmap convertYaml obj
 convertYaml (Array arr)       = Array $ fmap convertYaml arr
 convertYaml other             = other
