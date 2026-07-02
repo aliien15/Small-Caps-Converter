@@ -1,4 +1,4 @@
-module Core.SmallCaps (stringConverter) where
+module Core.SmallCaps (convertChar, stringConverter) where
 
 dictionary :: [(Char, Char)]
 dictionary = zip "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡxʏᴢᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡxʏᴢ"
