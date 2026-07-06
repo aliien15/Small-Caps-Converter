@@ -1,6 +1,6 @@
 # Small Caps Converter
 
-This project is a Haskell command-line utility. This tool parses Text and YAML files, converting standard alphabetical strings into Unicode ꜱᴍᴀʟʟ ᴄᴀᴘꜱ while safely ignoring numbers, booleans, nulls, and punctuation.
+This project is a Haskell command-line utility. This tool parses Text, YAML, and Properties files, converting standard alphabetical strings into Unicode ꜱᴍᴀʟʟ ᴄᴀᴘꜱ while safely ignoring numbers, booleans, nulls, and punctuation.
 
 ## 🏗️ Project Structure
 
@@ -12,13 +12,12 @@ small-caps-converter/
 │   └── Main.hs                  # CLI entry point with pure list pattern matching for argument routing
 ├── src/
 │   ├── Converters/
-│   │   ├── TextConverter.hs     # Safe IO pipeline enforcing UTF-8 encoding
-│   │   └── YamlConverter.hs     # Recursive AST walker using fmap and Aeson
+│   │   ├── TextConverter.hs       # Safe IO pipeline enforcing UTF-8 encoding
+│   │   ├── YamlConverter.hs       # Recursive AST walker using fmap and Aeson
+│   │   └── PropertiesConverter.hs # Raw byte-stream processor bypassing OS text encoders
 │   └── Core/
 │       └── SmallCaps.hs         # Point-free character mapping dictionary
 ├── data/                        # Default directory for file inputs and outputs
-│   ├── input.txt                # Example text file
-│   └── config.yaml              # Example YAML file
 ├── test/                        
 │   ├── Spec.hs                  # Test suite to make sure everything works fine
 └── small-caps-converter.cabal   # Package and build configuration
@@ -32,7 +31,7 @@ You will need the Haskell toolchain installed on your system (GHC and Cabal). Th
 ### Installation
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/aliien15/Small-Caps-Converter
+   git clone [https://github.com/aliien15/Small-Caps-Converter](https://github.com/aliien15/Small-Caps-Converter)
    cd small-caps-converter
    ```
 2. Build the executable using Cabal:
@@ -42,11 +41,11 @@ You will need the Haskell toolchain installed on your system (GHC and Cabal). Th
 
 ## 💻 Usage
 
-The application is designed with UX in mind. You **do not** need to type out folder paths or file extensions. The program automatically routes all file lookups to the `data/` folder and intelligently appends `.txt` or `.yaml` based on the command you run.
+The application is designed with UX in mind. You **do not** need to type out folder paths or file extensions. The program automatically routes all file lookups to the `data/` folder and intelligently appends `.txt`, `.yaml` or `.properties` based on the command you run.
 
 **Syntax:**
 ```bash
-cabal run small-caps-converter -- <text|yaml> <input_filename> <output_filename>
+cabal run small-caps-converter -- <text|yaml|properties> <input_filename> <output_filename>
 ```
 
 ---
@@ -144,5 +143,53 @@ plugin_data:
   enabled: true
   name: ᴛᴇꜱᴛ ᴍᴏᴅᴜʟᴇ
   version: 2.1
+```
 
+### 3. Converting a Properties File
+
+This command processes `.properties` configurations line-by-line. It safely manages system encoding overrides, maintains all empty space, preserves `#` and `!` comments, keeps your keys completely intact, and standardizes key-value delimiters to `=` while converting the target string values.
+
+Create a file named `settings.properties` inside the `data/` folder:
+```properties
+# ==========================================
+# Haskell Small Caps Converter - Test File
+# ==========================================
+
+! Server Settings
+server.host=localhost
+server.port:8080
+server.environment=production
+
+! External Integrations
+api.endpoint.url=[https://api.example.com/v1/data](https://api.example.com/v1/data)
+api.auth.token:secret_token_12345
+
+# Message Configurations
+message.greeting=Welcome to the application!
+message.math.hint=Remember that E=mc^2.
+```
+
+**Run the command:**
+```bash
+cabal run small-caps-converter -- properties settings new-settings
+```
+
+**Output (`data/new-settings.properties`):**
+```properties
+# ==========================================
+# Haskell Small Caps Converter - Test File
+# ==========================================
+
+! Server Settings
+server.host=ʟᴏᴄᴀʟʜᴏꜱᴛ
+server.port=8080
+server.environment=ᴘʀᴏᴅᴜᴄᴛɪᴏɴ
+
+! External Integrations
+api.endpoint.url=ʜᴛᴛᴘꜱ://ᴀᴘɪ.ᴇxᴀᴍᴘʟᴇ.ᴄᴏᴍ/ᴠ1/ᴅᴀᴛᴀ
+api.auth.token=ꜱᴇᴄʀᴇᴛ_ᴛᴏᴋᴇɴ_12345
+
+# Message Configurations
+message.greeting=Wᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴀᴘᴘʟɪᴄᴀᴛɪᴏɴ!
+message.math.hint=Rᴇᴍᴇᴍʙᴇʀ ᴛʜᴀᴛ E=ᴍᴄ^2.
 ```

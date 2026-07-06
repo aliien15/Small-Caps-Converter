@@ -28,7 +28,8 @@ executable small-caps-converter
                       yaml,
                       aeson,
                       text,
-                      filepath
+                      filepath,
+                      bytestring
     hs-source-dirs:   app, src
     default-language: Haskell2010
 
