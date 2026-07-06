@@ -9,18 +9,18 @@ The codebase follows the following structure:
 ```text
 small-caps-converter/
 ├── app/
-│   └── Main.hs                  # CLI entry point with pure list pattern matching for argument routing
+│   └── Main.hs                    # CLI entry point with pure list pattern matching for argument routing
 ├── src/
 │   ├── Converters/
 │   │   ├── TextConverter.hs       # Safe IO pipeline enforcing UTF-8 encoding
 │   │   ├── YamlConverter.hs       # Recursive AST walker using fmap and Aeson
 │   │   └── PropertiesConverter.hs # Raw byte-stream processor bypassing OS text encoders
 │   └── Core/
-│       └── SmallCaps.hs         # Point-free character mapping dictionary
-├── data/                        # Default directory for file inputs and outputs
+│       └── SmallCaps.hs           # Point-free character mapping dictionary
+├── data/                          # Default directory for file inputs and outputs
 ├── test/                        
-│   ├── Spec.hs                  # Test suite to make sure everything works fine
-└── small-caps-converter.cabal   # Package and build configuration
+│   ├── Spec.hs                    # Test suite to make sure everything works fine
+└── small-caps-converter.cabal     # Package and build configuration
 ```
 
 ## 🚀 Getting Started
@@ -73,12 +73,12 @@ cabal run small-caps-converter -- text input output
 
 **Output (`data/output.txt`):**
 ```text
-Hᴇʟʟᴏ Wᴏʀʟᴅ! 
-Tʜɪꜱ ɪꜱ ᴀ ᴛᴇꜱᴛ ᴏꜰ ᴛʜᴇ ᴘᴜʀᴇʟʏ ꜰᴜɴᴄᴛɪᴏɴᴀʟ Hᴀꜱᴋᴇʟʟ ᴄᴏɴᴠᴇʀᴛᴇʀ.
+ʜᴇʟʟᴏ ᴡᴏʀʟᴅ! 
+ᴛʜɪꜱ ɪꜱ ᴀ ᴛᴇꜱᴛ ᴏꜰ ᴛʜᴇ ᴘᴜʀᴇʟʏ ꜰᴜɴᴄᴛɪᴏɴᴀʟ ʜᴀꜱᴋᴇʟʟ ᴄᴏɴᴠᴇʀᴛᴇʀ.
 
-Dᴏᴇꜱ ɪᴛ ʜᴀɴᴅʟᴇ ᴜᴘᴘᴇʀᴄᴀꜱᴇ? YES.
-Dᴏᴇꜱ ɪᴛ ʜᴀɴᴅʟᴇ ʟᴏᴡᴇʀᴄᴀꜱᴇ? ʏᴇꜱ.
-Dᴏᴇꜱ ɪᴛ ɪɢɴᴏʀᴇ ɴᴜᴍʙᴇʀꜱ ʟɪᴋᴇ 12345 ᴀɴᴅ ᴘᴜɴᴄᴛᴜᴀᴛɪᴏɴ?!
+ᴅᴏᴇꜱ ɪᴛ ʜᴀɴᴅʟᴇ ᴜᴘᴘᴇʀᴄᴀꜱᴇ? ʏᴇs.
+ᴅᴏᴇꜱ ɪᴛ ʜᴀɴᴅʟᴇ ʟᴏᴡᴇʀᴄᴀꜱᴇ? ʏᴇꜱ.
+ᴅᴏᴇꜱ ɪᴛ ɪɢɴᴏʀᴇ ɴᴜᴍʙᴇʀꜱ ʟɪᴋᴇ 12345 ᴀɴᴅ ᴘᴜɴᴄᴛᴜᴀᴛɪᴏɴ?!
 ```
 
 ### 2. Converting a YAML File
