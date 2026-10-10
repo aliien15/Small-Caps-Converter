@@ -1,6 +1,6 @@
 # Small Caps Converter
 
-This project is a Haskell command-line utility. This tool parses Text, YAML, and Properties files, converting standard alphabetical strings into Unicode ꜱᴍᴀʟʟ ᴄᴀᴘꜱ while safely ignoring numbers, booleans, nulls, and punctuation.
+This project is a Haskell command-line utility. This tool parses Text, YAML, and Properties files, converting standard alphabetical strings into Unicode ꜱᴍᴀʟʟ ᴄᴀᴘꜱ while safely ignoring numbers, booleans, nulls, and punctuation. It's important to note that this project was only tested (and therefore only guaranteed to work) on linux - I do not built this with Windows or MacOS compatability in mind.
 
 ## 🏗️ Project Structure
 
@@ -31,7 +31,7 @@ You will need the Haskell toolchain installed on your system (GHC and Cabal). Th
 ### Installation
 1. Clone the repository to your local machine:
    ```bash
-   git clone [https://github.com/aliien15/Small-Caps-Converter](https://github.com/aliien15/Small-Caps-Converter)
+   git clone https://github.com/aliien15/Small-Caps-Converter
    cd small-caps-converter
    ```
 2. Build the executable using Cabal:

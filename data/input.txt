@@ -1,0 +1,2 @@
+Hello! This is a test file
+This should be converted to SmAlL cApS!

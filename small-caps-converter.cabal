@@ -21,6 +21,7 @@ executable small-caps-converter
     main-is:          Main.hs
     other-modules:    Converters.TextConverter,
                       Converters.YamlConverter,
+                      Converters.PropertiesConverter,
                       Core.SmallCaps
     -- other-extensions:
     -- other-extensions:
